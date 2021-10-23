@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaboratoriesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dega">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FakultetiId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fakulteti">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UniversitetiId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Grupi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CikliStudimit" Type="int" Nullable="false" />
+    <Property Name="Viti" Type="int" Nullable="false" />
+    <Property Name="Perriudha" Type="text" Nullable="false" />
+    <Property Name="UniversitetiId" Type="int" Nullable="false" />
+    <Property Name="FakultetiId" Type="int" Nullable="false" />
+    <Property Name="DegaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GrupiLab">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Viti" Type="int" Nullable="false" />
+    <Property Name="UiversitetiId" Type="int" Nullable="false" />
+    <Property Name="FakultetiId" Type="int" Nullable="false" />
+    <Property Name="DegaId" Type="int" Nullable="false" />
+    <Property Name="LaboratorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Laboratori">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lenda" Type="text" Nullable="false" />
+    <Property Name="CikliStudimit" Type="int" Nullable="false" />
+    <Property Name="Perriudha" Type="text" Nullable="false" />
+    <Property Name="PedagoguId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedagogu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NrPersonal" Type="int" Nullable="false" />
+    <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mbiemri" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Studenti">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emri" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mbiemri" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NrPersonal" Type="int" Nullable="false" />
+    <Property Name="Email" Type="text" Nullable="false" />
+    <Property Name="Password" Type="text" Nullable="false" />
+    <Property Name="GrupiId" Type="int" />
+    <Property Name="GrupiLabId" Type="int" />
+  </EntityType>
+  <EntityType Name="Tema">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="GrupiLabId" Type="int" Nullable="false" />
+    <Property Name="LaboratoriNr" Type="int" Nullable="false" />
+    <Property Name="Data" Type="date" Nullable="false" />
+    <Property Name="Tema" Type="text" Nullable="false" />
+    <Property Name="Vleresimi" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Totali">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Totali" Type="int" Nullable="false" />
+    <Property Name="StudentiId" Type="int" Nullable="false" />
+    <Property Name="LaboratoriId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Universiteti">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emri" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vleresimi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Vleresimi" Type="int" Nullable="false" />
+    <Property Name="StudentiId" Type="int" Nullable="false" />
+    <Property Name="TemaId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Dega_Fakulteti">
+    <End Role="Fakulteti" Type="Self.Fakulteti" Multiplicity="1" />
+    <End Role="Dega" Type="Self.Dega" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulteti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dega">
+        <PropertyRef Name="FakultetiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fakulteti_Universiteti">
+    <End Role="Universiteti" Type="Self.Universiteti" Multiplicity="1" />
+    <End Role="Fakulteti" Type="Self.Fakulteti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universiteti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Fakulteti">
+        <PropertyRef Name="UniversitetiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupi_Dega">
+    <End Role="Dega" Type="Self.Dega" Multiplicity="1" />
+    <End Role="Grupi" Type="Self.Grupi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dega">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grupi">
+        <PropertyRef Name="DegaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupi_Fakulteti">
+    <End Role="Fakulteti" Type="Self.Fakulteti" Multiplicity="1" />
+    <End Role="Grupi" Type="Self.Grupi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulteti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grupi">
+        <PropertyRef Name="FakultetiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grupi_Universiteti">
+    <End Role="Universiteti" Type="Self.Universiteti" Multiplicity="1" />
+    <End Role="Grupi" Type="Self.Grupi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universiteti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Grupi">
+        <PropertyRef Name="UniversitetiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupiLab_Dega">
+    <End Role="Dega" Type="Self.Dega" Multiplicity="1" />
+    <End Role="GrupiLab" Type="Self.GrupiLab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dega">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupiLab">
+        <PropertyRef Name="DegaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupiLab_Fakulteti">
+    <End Role="Fakulteti" Type="Self.Fakulteti" Multiplicity="1" />
+    <End Role="GrupiLab" Type="Self.GrupiLab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fakulteti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupiLab">
+        <PropertyRef Name="FakultetiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupiLab_Laboratori">
+    <End Role="Laboratori" Type="Self.Laboratori" Multiplicity="1" />
+    <End Role="GrupiLab" Type="Self.GrupiLab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratori">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupiLab">
+        <PropertyRef Name="LaboratorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupiLab_Universiteti">
+    <End Role="Universiteti" Type="Self.Universiteti" Multiplicity="1" />
+    <End Role="GrupiLab" Type="Self.GrupiLab" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Universiteti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupiLab">
+        <PropertyRef Name="UiversitetiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Laboratori_Pedagogu">
+    <End Role="Pedagogu" Type="Self.Pedagogu" Multiplicity="1" />
+    <End Role="Laboratori" Type="Self.Laboratori" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedagogu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Laboratori">
+        <PropertyRef Name="PedagoguId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Studenti_Grupi">
+    <End Role="Grupi" Type="Self.Grupi" Multiplicity="0..1" />
+    <End Role="Studenti" Type="Self.Studenti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grupi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Studenti">
+        <PropertyRef Name="GrupiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Studenti_GrupiLab">
+    <End Role="GrupiLab" Type="Self.GrupiLab" Multiplicity="0..1" />
+    <End Role="Studenti" Type="Self.Studenti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupiLab">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Studenti">
+        <PropertyRef Name="GrupiLabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tema_GrupiLab">
+    <End Role="GrupiLab" Type="Self.GrupiLab" Multiplicity="1" />
+    <End Role="Tema" Type="Self.Tema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupiLab">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tema">
+        <PropertyRef Name="GrupiLabId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Totali_Laboratori">
+    <End Role="Laboratori" Type="Self.Laboratori" Multiplicity="1" />
+    <End Role="Totali" Type="Self.Totali" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Laboratori">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Totali">
+        <PropertyRef Name="LaboratoriId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Totali_Studenti">
+    <End Role="Studenti" Type="Self.Studenti" Multiplicity="1" />
+    <End Role="Totali" Type="Self.Totali" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Studenti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Totali">
+        <PropertyRef Name="StudentiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Universiteti_Universiteti">
+    <End Role="Universiteti" Type="Self.Universiteti" Multiplicity="1" />
+    <End Role="Universiteti1" Type="Self.Universiteti" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Universiteti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Universiteti1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vleresimi_Studenti">
+    <End Role="Studenti" Type="Self.Studenti" Multiplicity="1" />
+    <End Role="Vleresimi" Type="Self.Vleresimi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Studenti">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vleresimi">
+        <PropertyRef Name="StudentiId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vleresimi_Tema">
+    <End Role="Tema" Type="Self.Tema" Multiplicity="1" />
+    <End Role="Vleresimi" Type="Self.Vleresimi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tema">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vleresimi">
+        <PropertyRef Name="TemaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LaboratoriesModelStoreContainer">
+    <EntitySet Name="Dega" EntityType="Self.Dega" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fakulteti" EntityType="Self.Fakulteti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Grupi" EntityType="Self.Grupi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrupiLab" EntityType="Self.GrupiLab" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Laboratori" EntityType="Self.Laboratori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pedagogu" EntityType="Self.Pedagogu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Studenti" EntityType="Self.Studenti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tema" EntityType="Self.Tema" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Totali" EntityType="Self.Totali" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Universiteti" EntityType="Self.Universiteti" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vleresimi" EntityType="Self.Vleresimi" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Dega_Fakulteti" Association="Self.FK_Dega_Fakulteti">
+      <End Role="Fakulteti" EntitySet="Fakulteti" />
+      <End Role="Dega" EntitySet="Dega" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fakulteti_Universiteti" Association="Self.FK_Fakulteti_Universiteti">
+      <End Role="Universiteti" EntitySet="Universiteti" />
+      <End Role="Fakulteti" EntitySet="Fakulteti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupi_Dega" Association="Self.FK_Grupi_Dega">
+      <End Role="Dega" EntitySet="Dega" />
+      <End Role="Grupi" EntitySet="Grupi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupi_Fakulteti" Association="Self.FK_Grupi_Fakulteti">
+      <End Role="Fakulteti" EntitySet="Fakulteti" />
+      <End Role="Grupi" EntitySet="Grupi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grupi_Universiteti" Association="Self.FK_Grupi_Universiteti">
+      <End Role="Universiteti" EntitySet="Universiteti" />
+      <End Role="Grupi" EntitySet="Grupi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupiLab_Dega" Association="Self.FK_GrupiLab_Dega">
+      <End Role="Dega" EntitySet="Dega" />
+      <End Role="GrupiLab" EntitySet="GrupiLab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupiLab_Fakulteti" Association="Self.FK_GrupiLab_Fakulteti">
+      <End Role="Fakulteti" EntitySet="Fakulteti" />
+      <End Role="GrupiLab" EntitySet="GrupiLab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupiLab_Laboratori" Association="Self.FK_GrupiLab_Laboratori">
+      <End Role="Laboratori" EntitySet="Laboratori" />
+      <End Role="GrupiLab" EntitySet="GrupiLab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupiLab_Universiteti" Association="Self.FK_GrupiLab_Universiteti">
+      <End Role="Universiteti" EntitySet="Universiteti" />
+      <End Role="GrupiLab" EntitySet="GrupiLab" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Laboratori_Pedagogu" Association="Self.FK_Laboratori_Pedagogu">
+      <End Role="Pedagogu" EntitySet="Pedagogu" />
+      <End Role="Laboratori" EntitySet="Laboratori" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Studenti_Grupi" Association="Self.FK_Studenti_Grupi">
+      <End Role="Grupi" EntitySet="Grupi" />
+      <End Role="Studenti" EntitySet="Studenti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Studenti_GrupiLab" Association="Self.FK_Studenti_GrupiLab">
+      <End Role="GrupiLab" EntitySet="GrupiLab" />
+      <End Role="Studenti" EntitySet="Studenti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tema_GrupiLab" Association="Self.FK_Tema_GrupiLab">
+      <End Role="GrupiLab" EntitySet="GrupiLab" />
+      <End Role="Tema" EntitySet="Tema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Totali_Laboratori" Association="Self.FK_Totali_Laboratori">
+      <End Role="Laboratori" EntitySet="Laboratori" />
+      <End Role="Totali" EntitySet="Totali" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Totali_Studenti" Association="Self.FK_Totali_Studenti">
+      <End Role="Studenti" EntitySet="Studenti" />
+      <End Role="Totali" EntitySet="Totali" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Universiteti_Universiteti" Association="Self.FK_Universiteti_Universiteti">
+      <End Role="Universiteti" EntitySet="Universiteti" />
+      <End Role="Universiteti1" EntitySet="Universiteti" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vleresimi_Studenti" Association="Self.FK_Vleresimi_Studenti">
+      <End Role="Studenti" EntitySet="Studenti" />
+      <End Role="Vleresimi" EntitySet="Vleresimi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vleresimi_Tema" Association="Self.FK_Vleresimi_Tema">
+      <End Role="Tema" EntitySet="Tema" />
+      <End Role="Vleresimi" EntitySet="Vleresimi" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

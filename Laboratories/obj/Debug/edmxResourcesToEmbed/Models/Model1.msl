@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaboratoriesModelStoreContainer" CdmEntityContainer="LaboratoriesEntities">
+    <EntitySetMapping Name="Degas">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Dega">
+        <MappingFragment StoreEntitySet="Dega">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="FakultetiId" ColumnName="FakultetiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fakultetis">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Fakulteti">
+        <MappingFragment StoreEntitySet="Fakulteti">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="UniversitetiId" ColumnName="UniversitetiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupis">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Grupi">
+        <MappingFragment StoreEntitySet="Grupi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="CikliStudimit" ColumnName="CikliStudimit" />
+          <ScalarProperty Name="Viti" ColumnName="Viti" />
+          <ScalarProperty Name="Perriudha" ColumnName="Perriudha" />
+          <ScalarProperty Name="UniversitetiId" ColumnName="UniversitetiId" />
+          <ScalarProperty Name="FakultetiId" ColumnName="FakultetiId" />
+          <ScalarProperty Name="DegaId" ColumnName="DegaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GrupiLabs">
+      <EntityTypeMapping TypeName="LaboratoriesModel.GrupiLab">
+        <MappingFragment StoreEntitySet="GrupiLab">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="Viti" ColumnName="Viti" />
+          <ScalarProperty Name="UiversitetiId" ColumnName="UiversitetiId" />
+          <ScalarProperty Name="FakultetiId" ColumnName="FakultetiId" />
+          <ScalarProperty Name="DegaId" ColumnName="DegaId" />
+          <ScalarProperty Name="LaboratorId" ColumnName="LaboratorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Laboratoris">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Laboratori">
+        <MappingFragment StoreEntitySet="Laboratori">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="Lenda" ColumnName="Lenda" />
+          <ScalarProperty Name="CikliStudimit" ColumnName="CikliStudimit" />
+          <ScalarProperty Name="Perriudha" ColumnName="Perriudha" />
+          <ScalarProperty Name="PedagoguId" ColumnName="PedagoguId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedagogus">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Pedagogu">
+        <MappingFragment StoreEntitySet="Pedagogu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NrPersonal" ColumnName="NrPersonal" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="Mbiemri" ColumnName="Mbiemri" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Studentis">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Studenti">
+        <MappingFragment StoreEntitySet="Studenti">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="Mbiemri" ColumnName="Mbiemri" />
+          <ScalarProperty Name="NrPersonal" ColumnName="NrPersonal" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="GrupiId" ColumnName="GrupiId" />
+          <ScalarProperty Name="GrupiLabId" ColumnName="GrupiLabId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Temas">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Tema">
+        <MappingFragment StoreEntitySet="Tema">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GrupiLabId" ColumnName="GrupiLabId" />
+          <ScalarProperty Name="LaboratoriNr" ColumnName="LaboratoriNr" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Tema1" ColumnName="Tema" />
+          <ScalarProperty Name="Vleresimi" ColumnName="Vleresimi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Totalis">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Totali">
+        <MappingFragment StoreEntitySet="Totali">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Totali1" ColumnName="Totali" />
+          <ScalarProperty Name="StudentiId" ColumnName="StudentiId" />
+          <ScalarProperty Name="LaboratoriId" ColumnName="LaboratoriId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universitetis">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Universiteti">
+        <MappingFragment StoreEntitySet="Universiteti">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vleresimis">
+      <EntityTypeMapping TypeName="LaboratoriesModel.Vleresimi">
+        <MappingFragment StoreEntitySet="Vleresimi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Vleresimi1" ColumnName="Vleresimi" />
+          <ScalarProperty Name="StudentiId" ColumnName="StudentiId" />
+          <ScalarProperty Name="TemaId" ColumnName="TemaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

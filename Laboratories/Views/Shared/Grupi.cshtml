@@ -1,0 +1,74 @@
+﻿
+@using Laboratories.ViewModels
+@model IndexModelView
+@{
+    ViewBag.Title = "Grupi";
+  
+}
+
+<h2>Grupi</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <p>________________Krijo Grupin_____________________________</p>
+        <div class="form-group">
+            @Html.LabelFor(model => model.grmodel.UniversitetiId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("UniversitetiId", null, "Zgjidhni universitetin", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.grmodel.UniversitetiId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.grmodel.FakultetiId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FakultetiId", null, "Zgjidhni fakultetin", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.grmodel.FakultetiId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.grmodel.DegaId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DegaId", null, "Zgjidhni degen", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.grmodel.DegaId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.grmodel.EmriGrupit, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grmodel.EmriGrupit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.grmodel.EmriGrupit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.grmodel.CikliStudimit, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grmodel.CikliStudimit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.grmodel.CikliStudimit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.grmodel.Viti, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.grmodel.Viti, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.grmodel.Viti, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

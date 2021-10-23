@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<link href="//maxcdn.bootstrapcdn.com/bootstra
+    <a href="~/Views/Home/Index.cshtml">~/Views/Home/Index.cshtml</a>p/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
+<!------ Include the above in your HEAD tag ---------->
+@Styles.Render("~/Content/Background/css")
+
+@Scripts.Render("~/bundles/Background/background")
+@Styles.Render("~/Content/Plugins/css")
+@Styles.Render("~/Content/Plugins/form")
+
+<div id="particles">
+    <div id="webcoderskull">
+        <h1>Laborator</h1>
+        <!--Grid row-->
+        <div class="row text-center">
+
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <h2 class="my-5 h2">Pedagog</h2>
+                <a href="#ProfessorModal" data-toggle="modal">
+                    <img width="100" height="100" src="https://cdn3.iconfinder.com/data/icons/medical-avatars/128/05-512.png"
+                         data-holder-rendered="true">
+                </a>
+
+            </div>
+            <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-6 mb-4">
+
+                <h2 class="my-5 h2">Student</h2>
+                <a href="#StudentModal" data-toggle="modal">
+                    <img width="100" height="100" src="https://cdn-icons.flaticon.com/png/512/2886/premium/2886008.png?token=exp=1634964397~hmac=6ba5f0fba113af29c0c260bfe0bbbff5"
+                         data-holder-rendered="true">
+                </a>
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+        <!-- Modal HTML -->
+
+    
+        <div id="ProfessorModal" class="modal fade">
+            <div class="modal-dialog modal-login">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="avatar">
+                            <img src="https://cdn3.iconfinder.com/data/icons/medical-avatars/128/05-512.png" alt="Avatar">
+                        </div>
+                        <h4 class="modal-title">Pedagog</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("Login", "Professor"))
+                        {@Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="email" placeholder="email" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Hyr</button>
+                        </div>
+                        }
+
+                    </div>
+                    <div class="modal-footer">
+                        @Html.ActionLink("Regjistrohu", "Create", "Professor")
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*Student*@
+        <div id="StudentModal" class="modal fade">
+            <div class="modal-dialog modal-login">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <div class="avatar">
+                            <img src="https://image.flaticon.com/icons/svg/201/201818.svg" alt="Avatar">
+                        </div>
+                        <h4 class="modal-title">Student</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/examples/actions/confirmation.php" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="email" placeholder="Email" required="required">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Hyr</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        @Html.ActionLink("Regjistrohu", "Create", "Student")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+
+
+
+    </div>
+</div>

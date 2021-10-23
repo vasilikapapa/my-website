@@ -1,0 +1,107 @@
+﻿
+
+@model Laboratories.ViewModels.LaboratoriVM
+
+@{
+
+    ViewBag.Title = "Save";
+    
+
+}
+
+<h2>Save</h2>
+
+@using (Html.BeginForm( "Save","Laboratory"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>LaboratoriVM</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Emri, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Emri, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Emri, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Lenda, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Lenda, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Lenda, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CikliStudimit, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CikliStudimit, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CikliStudimit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Perriudha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Perriudha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Perriudha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <input type="hidden" value="@Session["UserID"]" name="PedagoguId" />
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" item-id="btn" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+             <div class="row">
+    <div class="col-md-8 col-lg-offset-3">
+        <h2>Laborator</h2><br />
+                          <table id="myTable" class="table table-bordered table-hover">
+                              <tr>
+                                  <th>Laborator</th>
+                                  <th>Perrriudha</th>
+                                  <th>Lenda</th>
+                                  <th>Cikli i Studimit</th>
+                              </tr>
+                              @foreach (var item in (IEnumerable<Laboratories.Models.Laboratori>)ViewData["laboratories"])
+                              {
+                              <tr>
+                                  <td>
+                                      @Html.DisplayFor(modelItem => item.Emri)
+                                  </td>
+                                  <td>
+                                      @Html.DisplayFor(modelItem => item.Perriudha)
+                                  </td>
+                                  <td>
+                                      @Html.DisplayFor(modelItem => item.Lenda)
+                                  </td>
+                                  <td>
+                                      @Html.DisplayFor(modelItem => item.CikliStudimit)
+                                  </td>
+                                  <td>
+                                      @Html.ActionLink("Edit", "PersonDetails") |
+                                      @Html.ActionLink("Krijo Grupin", "Create", "Costumer", null, new { @class = "btn btn-primary pull-right" })
+                                  </td>
+                              </tr>
+                              }
+
+                          </table>
+    </div>
+</div>
+           
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

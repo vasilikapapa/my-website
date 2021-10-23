@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="44a70d6927054cb4ba9ebc6840046fe8" Name="Diagram1">
+        <EntityTypeShape EntityType="LaboratoriesModel.Dega" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Fakulteti" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Grupi" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.GrupiLab" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Laboratori" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Pedagogu" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Studenti" Width="1.5" PointX="7.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Tema" Width="1.5" PointX="7.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Totali" Width="1.5" PointX="9.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Universiteti" Width="1.5" PointX="1.5" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaboratoriesModel.Vleresimi" Width="1.5" PointX="9.75" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Dega_Fakulteti" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Grupi_Dega" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_GrupiLab_Dega" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Fakulteti_Universiteti" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Grupi_Fakulteti" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_GrupiLab_Fakulteti" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Grupi_Universiteti" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Studenti_Grupi" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_GrupiLab_Laboratori" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_GrupiLab_Universiteti" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Studenti_GrupiLab" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Tema_GrupiLab" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Laboratori_Pedagogu" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Totali_Laboratori" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Totali_Studenti" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Vleresimi_Studenti" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Vleresimi_Tema" ManuallyRouted="false" />
+        <AssociationConnector Association="LaboratoriesModel.FK_Universiteti_Universiteti" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
